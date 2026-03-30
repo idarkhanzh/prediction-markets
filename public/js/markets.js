@@ -66,7 +66,6 @@ function buildCard(event) {
     </div>
     <div class="event-meta">
       <span id="tv-${event.id}">${total} vote${total!==1?'s':''}</span>
-      <span>by @${esc(event.createdBy)}</span>
     </div>`;
   return card;
 }
