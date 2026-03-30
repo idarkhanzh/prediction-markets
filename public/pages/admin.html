@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Prediction Markets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="app-page">
+
+  <nav class="app-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Prediction Markets</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-username" id="navUsername"></span>
+      <a href="markets.html" class="nav-link">Markets</a>
+      <a href="admin.html" class="nav-link active">Admin</a>
+      <button class="btn-outline small" onclick="logout()">Log Out</button>
+    </div>
+  </nav>
+
+  <main class="app-main">
+
+    <section class="admin-section">
+      <h2 class="section-title">Create Event <span class="badge admin-badge">Admin</span></h2>
+      <p class="section-sub">Events created here are immediately approved and visible to all users.</p>
+      <form class="inline-form" onsubmit="handleAdminCreate(event)">
+        <input type="text" id="adminEventTitle" placeholder='e.g. "Will AI win the Nobel Prize in 2025?"' required />
+        <button type="submit" class="btn-primary auto-width" id="adminCreateBtn">
+          <span class="btn-label">Create & Publish</span>
+          <span class="btn-spinner hidden">↻</span>
+        </button>
+      </form>
+      <div class="form-error" id="adminCreateError"></div>
+    </section>
+
+    <section class="admin-section">
+      <h2 class="section-title">Pending Approval <span class="badge pending-badge" id="pendingCount">0</span></h2>
+      <p class="section-sub">Events submitted by users waiting for your review.</p>
+      <div id="pendingList" class="admin-list">
+        <p class="list-empty" id="pendingEmpty">No events pending. ✓</p>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <h2 class="section-title">All Published Events</h2>
+      <p class="section-sub">Approved and live on the markets page.</p>
+      <div id="approvedList" class="admin-list">
+        <p class="list-empty" id="approvedEmpty">No published events yet.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

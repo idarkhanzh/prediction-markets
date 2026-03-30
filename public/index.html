@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction Markets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body class="auth-page">
+
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">Prediction Markets</span>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <div class="hero-text">
+      <h1>Bet on <em>what happens</em><br/>next.</h1>
+      <p>A community-driven prediction market. Stake your belief on real-world outcomes.</p>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="tab-btn active" id="tabLogin" onclick="switchTab('login')">Log In</button>
+        <button class="tab-btn" id="tabRegister" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- Login form -->
+      <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+        <div class="field">
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" placeholder="your_username" required />
+        </div>
+        <div class="field">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <div class="form-error" id="loginError"></div>
+        <button type="submit" class="btn-primary" id="loginBtn">
+          <span class="btn-label">Log In</span>
+          <span class="btn-spinner hidden">↻</span>
+        </button>
+      </form>
+
+      <!-- Register form -->
+      <form id="registerForm" class="auth-form hidden" onsubmit="handleRegister(event)">
+        <div class="field">
+          <label for="regUsername">Choose a username</label>
+          <input type="text" id="regUsername" placeholder="your_username" required />
+        </div>
+        <div class="field">
+          <label for="regPassword">Choose a password</label>
+          <input type="password" id="regPassword" placeholder="min 4 characters" required />
+        </div>
+        <div class="form-error" id="registerError"></div>
+        <button type="submit" class="btn-primary" id="registerBtn">
+          <span class="btn-label">Create Account</span>
+          <span class="btn-spinner hidden">↻</span>
+        </button>
+        <p class="form-note">No email. No verification. Just username and password.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>Prediction Markets — free, open, community-run</span>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
