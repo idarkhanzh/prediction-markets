@@ -78,7 +78,7 @@ async function login(req, res) {
 async function getEvents(req, res) {
   const { username } = req.query;
   const db = await readDB();
-  const events = (isAdmin(username) ? db.events : db.events.filter(e => e.status === "approved").reverse())
+  const events = (isAdmin(username) ? [...db.events].reverse() : db.events.filter(e => e.status === "approved").reverse())
     .map(e => ({
       id: e.id, title: e.title, status: e.status,
       createdBy: e.createdBy, createdAt: e.createdAt,
